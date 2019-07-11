@@ -1,15 +1,10 @@
+package practice04;
+
 import org.junit.Test;
 
-import practice01.Person;
-import practice02.Student;
+import static org.fest.assertions.api.Assertions.assertThat;
 
-//package practice02;
-
-//import org.junit.Test;
-//
-//import static org.fest.assertions.api.Assertions.assertThat;
-//
-public class Practice02Test {
+public class Practice04Test {
     @Test
     public void should_person_have_name_and_age() throws Exception {
         Person person = new Person("Tom", 21);
@@ -20,7 +15,7 @@ public class Practice02Test {
     @Test
     public void should_person_have_an_introduce_method_which_introduce_person_with_name_and_age() throws Exception {
         Person tom = new Person("Tom", 21);
-       String introduce = tom.introduce();
+        String introduce = tom.introduce();
         assertThat(introduce).isEqualTo("My name is Tom. I am 21 years old.");
     }
 
@@ -35,6 +30,19 @@ public class Practice02Test {
     @Test
     public void should_student_introduce_with_class() throws Exception {
         Student tom = new Student("Tom", 21, 2);
-        assertThat(tom.introduce()).isEqualTo("I am a Student. I am at Class 2.");
+        assertThat(tom.introduce()).isEqualTo("My name is Tom. I am 21 years old. I am a Student. I am at Class 2.");
+    }
+
+    @Test
+    public void should_worker_have_name_and_age() throws Exception {
+        Worker tom = new Worker("Tom", 21);
+        assertThat(tom.getName()).isEqualTo("Tom");
+        assertThat(tom.getAge()).isEqualTo(21);
+    }
+
+    @Test
+    public void should_worker_introduce_itself_with_no_field() throws Exception {
+        Worker tom = new Worker("Tom", 21);
+        assertThat(tom.introduce()).isEqualTo("My name is Tom. I am 21 years old. I am a Worker. I have a job.");
     }
 }
